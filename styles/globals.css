@@ -2,25 +2,62 @@ html,
 body {
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
 
 * {
   box-sizing: border-box;
+  font-size: 1em;
+}
+
+.fa-star {
+  color: yellow;
+}
+
+.welcomeDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+}
+
+.welcomeh1 {
+  text-align: center;
+  font-size: 60px;
+  color: #fff;
+}
+
+.next-image-card {
+  width: 200px;
+  height: 249px;
+}
+
+.next-image-backdrop {
+  width: 400px;
+  height: 300px;
+  margin: 5px 20px 0px 10px;
+}
+
+.next-image-trending {
+  margin: auto;
+}
+
+.next-image-backdrop, .next-image-card {
+  border: 2px solid hsl(272, 63%, 69%);
 }
 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+    overflow-x: hidden;
   }
+
   body {
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
     color: white;
-    background: black;
+    overflow-x: hidden;
   }
 }
