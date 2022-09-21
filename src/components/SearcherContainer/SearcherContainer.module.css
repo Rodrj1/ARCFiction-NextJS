@@ -4,17 +4,15 @@
     text-align: center;
     align-items: flex-start;
     align-content: space-around;
-    height: auto;
+    min-height: 50vh;
     width: 100%;
     font-size: 2rem;
     text-align: center;
     margin: 20px auto;
     padding: 20px 0px;
-    background: #571b986c;
 }
 
 .searchContainer h1 {
-    font-weight: 300;
     width: 100%;
 }
 
@@ -23,8 +21,8 @@
 }
 
 .search {
-    background-color: black;
-    border: 2px solid hsl(272, 63%, 69%);
+    background-color: #fff;
+    border:none;
     border-radius: 25px;
     padding: 5px;
     font-size: 1.2rem;
@@ -32,7 +30,9 @@
     min-width: 310px;
     width: 450px;
     margin: auto;
+    color: #000;
 }
+
 
 .columnContainer {
     display: flex;
@@ -61,4 +61,5 @@
     height: 60px;
     overflow-y: hidden;
     overflow-x: auto;
+    margin-bottom: 40px;
 }

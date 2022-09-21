@@ -1,0 +1,52 @@
+import { NextPage } from "next";
+import { DisplayCardProps } from "../types";
+import { useSearchByMedia } from "../hooks/useSearcherByMedia";
+import SearcherContainer from "../components/SearcherContainer/SearcherContainer";
+
+interface SearcherProps {
+  initialData: DisplayCardProps[];
+  media: string;
+}
+
+const Searcher: NextPage<SearcherProps> = ({ initialData, media }) => {
+  const {
+    data,
+    hasMore,
+    advancePage,
+    submitSearch,
+    provisionalSearch,
+    storeProvisionalSearch,
+    selectGenre,
+  } = useSearchByMedia({ initialData });
+
+  return (
+    <SearcherContainer
+      name={media}
+      data={data}
+      hasMore={hasMore}
+      advancePage={advancePage}
+      submitSearch={submitSearch}
+      provisionalSearch={provisionalSearch}
+      storeProvisionalSearch={storeProvisionalSearch}
+      selectGenre={selectGenre}
+    />
+  );
+};
+
+export const getServerSideProps = async (context: {
+  query: { name: string };
+}) => {
+  const media = context.query.name;
+  const requestData = await fetch(
+    `https://api.themoviedb.org/3/discover/${media}?sort_by=popularity.desc&api_key=1d2291efea2e84d18b938ffde00ff81b&page=1`
+  ).then((response) => response.json());
+
+  return {
+    props: {
+      initialData: requestData.results,
+      media,
+    },
+  };
+};
+
+export default Searcher;

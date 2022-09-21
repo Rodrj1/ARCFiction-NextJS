@@ -43,7 +43,7 @@
 }
 
 .imageContainer a {
-    height: 300px; 
+    height: 300px;
     width: 400px !important;
     scroll-snap-align: center;
     margin: 5px 20px 0px 0px;
@@ -52,7 +52,7 @@
 .details {
     display: flex;
     width: 100%;
-    min-height: 500px;
+    min-height: 50vh;
     align-items: center;
     background: #571b986c;
     position: relative;
@@ -154,7 +154,7 @@
         border-top: 4px solid hsl(272, 63%, 69%);
     }
 
-    .innerContainer:nth-child(2){
+    .innerContainer:nth-child(2) {
         height: 450px;
     }
 
@@ -254,7 +254,7 @@
         font-size: 1.3rem;
     }
 
-    .innerContainer:nth-child(2){
+    .innerContainer:nth-child(2) {
         height: 420px;
     }
 }

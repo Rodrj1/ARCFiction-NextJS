@@ -1,27 +1,45 @@
+import { useRouter } from "next/router";
 import NextLink from "../NextLink/NextLink";
 
 const NextNavBar = () => {
+  const router = useRouter();
+
   return (
     <>
       <nav>
         <NextLink href="/">
-          <a>
-            Home
-          </a>
+          <a>Home</a>
         </NextLink>
-        <NextLink href="/searcher">
-          <a>About</a>
-        </NextLink>
+        <div
+          onClick={() =>
+            router.push({
+              pathname: "/searchmovies",
+              query: { name: "movie" },
+            })
+          }
+        >
+          <a>Movies</a>
+        </div>
+        <div
+          onClick={() =>
+            router.push({
+              pathname: "/searchtvshows",
+              query: { name: "tv" },
+            })
+          }
+        >
+          <a>Tv Shows</a>
+        </div>
       </nav>
 
       <style jsx>{`
         nav {
           display: flex;
           align-items: center;
-          justify-content:center;
+          justify-content: center;
           height: 60px;
-          width:100%;
-          margin:auto;
+          width: 100%;
+          margin: auto;
           background: #571b986c;
           position: fixed;
           z-index: 100000;
