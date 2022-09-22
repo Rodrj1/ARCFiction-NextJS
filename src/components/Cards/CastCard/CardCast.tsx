@@ -14,6 +14,7 @@ const CardCast = ({ character, name, imageURL }: CastProps) => {
       <div className={CardCSS.card}>
         <div className="next-image-card no-border">
           <Image
+            alt={character}
             src={img_link}
             width={200}
             height={250}

@@ -58,11 +58,13 @@ export const useGetMediaDetails = ({ media, id }: MediaProps) => {
           title="See backdrop in full resolution."
           href={`${ORIGINAL_IMG_URL}${backdrop?.file_path}`}
           target="_blank"
+          rel="noreferrer"
           key={backdrop?.file_path}
         >
           <motion.div whileHover={{ scale: 1.04 }}>
             <div className="next-image-backdrop">
               <Image
+                alt={backdrop.file_path}
                 src={`${ORIGINAL_IMG_URL}${backdrop?.file_path}`}
                 layout="intrinsic"
                 objectFit="cover"

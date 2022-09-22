@@ -112,7 +112,12 @@ const MediaDetailsContainer = ({
           />
         </div>
         <div className={`${MediaCSS.detailsItem} ${MediaCSS.description}`}>
-          <a title="Visit Homepage" href={media.homepage} target="_blank">
+          <a
+            title="Visit Homepage"
+            href={media.homepage}
+            rel="noreferrer"
+            target="_blank"
+          >
             <h1>VISIT OFFICIAL WEBSITE</h1>
           </a>
           <p>{genres}</p>

@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>ARCFiction - NextJS</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://kit.fontawesome.com/1c30045aa9.js"></script>
+        <script src="https://kit.fontawesome.com/1c30045aa9.js" async></script>
       </Head>
 
       <NextNavBar />

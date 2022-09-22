@@ -14,6 +14,7 @@ const MediaCard = ({ id, poster_path, title, name }: DisplayCardProps) => {
             <motion.div whileHover={{ scale: 1.1 }}>
               <div className="next-image-card">
                 <Image
+                  alt={name ? name : title}
                   src={image_URL}
                   width={200}
                   height={250}
@@ -28,7 +29,6 @@ const MediaCard = ({ id, poster_path, title, name }: DisplayCardProps) => {
         )}
         <h1>{name ? name : title}</h1>
       </div>
-
     </>
   );
 };
