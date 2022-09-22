@@ -27,10 +27,9 @@ const ListItem = ({ name, description, items, id }: ListProps) => {
   const showMediaInCurrentList = items.map((media) => {
     const mediatype = media.name == undefined ? "movie" : "tv";
     return (
-      <div className={ListCSS.flexCard}>
+      <div className={ListCSS.flexCard} key={media.uuid}>
         <div
           onClick={() => router.push(`./${mediatype}/${media.id.toString()}`)}
-          key={media.uuid}
         >
           <MediaCard
             id={media.id}
