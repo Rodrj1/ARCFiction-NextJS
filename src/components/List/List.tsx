@@ -27,17 +27,19 @@ const ListItem = ({ name, description, items, id }: ListProps) => {
   const showMediaInCurrentList = items.map((media) => {
     const mediatype = media.name == undefined ? "movie" : "tv";
     return (
-      <div
-        onClick={() => router.push(`./${mediatype}/${media.id.toString()}`)}
-        key={media.uuid}
-      >
-        <MediaCard
-          id={media.id}
-          poster_path={media.poster_path}
-          title={media.title}
-          name={media.name}
-          uuid={media.uuid}
-        />
+      <div className={ListCSS.flexCard}>
+        <div
+          onClick={() => router.push(`./${mediatype}/${media.id.toString()}`)}
+          key={media.uuid}
+        >
+          <MediaCard
+            id={media.id}
+            poster_path={media.poster_path}
+            title={media.title}
+            name={media.name}
+            uuid={media.uuid}
+          />
+        </div>
         <button onClick={() => handleRemoveFromList(media.uuid)}>
           Remove From List
         </button>

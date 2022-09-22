@@ -58,6 +58,15 @@
     text-align: center;
 }
 
+.flexCard {
+    display: flex;
+    flex-direction: column;
+}
+
+.flexCard button {
+    align-self: center;
+}
+
 @media screen and (max-width: 648px) {
     .list {
         width: 97%;
