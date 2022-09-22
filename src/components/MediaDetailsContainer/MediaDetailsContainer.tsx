@@ -17,7 +17,7 @@ interface DetailsProps {
       }
     | undefined;
   similar: JSX.Element[];
-  genres: string;
+  genres: string[];
   cast: (JSX.Element | undefined)[];
   images: (JSX.Element | undefined)[];
   id: string;
