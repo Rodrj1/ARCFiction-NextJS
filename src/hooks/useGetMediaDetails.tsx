@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { MediaProps } from "../types";
+import { v4 as uuid } from "uuid";
 import Image from "next/image";
 import CardCast from "../components/Cards/CastCard/CardCast";
 import MediaCard from "../components/Cards/MediaCard/MediaCard";
 
-export const useGetMediaDetails = ({ media }: MediaProps) => {
+export const useGetMediaDetails = ({ media, id }: MediaProps) => {
   const router = useRouter();
 
   const TV_TRAILER = media?.videos?.results?.find(
@@ -34,13 +35,16 @@ export const useGetMediaDetails = ({ media }: MediaProps) => {
   });
 
   const similar = media?.similar?.results?.map((similar) => (
-    <div onClick={() => router.push(`./${similar.id.toString()}`)}>
+    <div
+      key={similar.id}
+      onClick={() => router.push(`./${similar.id.toString()}`)}
+    >
       <MediaCard
-        key={similar.id}
         id={similar.id}
         poster_path={similar.poster_path}
         title={similar.title}
         name={similar.name}
+        uuid={uuid()}
       />
     </div>
   ));
@@ -77,5 +81,6 @@ export const useGetMediaDetails = ({ media }: MediaProps) => {
     genres,
     similar,
     images,
+    id,
   };
 };

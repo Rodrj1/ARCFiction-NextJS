@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CardCSS from "../Card.module.css";
 
 interface CastProps {
   character: string;
@@ -10,8 +11,8 @@ const CardCast = ({ character, name, imageURL }: CastProps) => {
   const img_link = `https://image.tmdb.org/t/p/w500/${imageURL}`;
   return (
     <>
-      <div className="card">
-        <div className="next-image-card">
+      <div className={CardCSS.card}>
+        <div className="next-image-card no-border">
           <Image
             src={img_link}
             width={200}
@@ -23,39 +24,6 @@ const CardCast = ({ character, name, imageURL }: CastProps) => {
         <h1>{name}</h1>
         <h3>Character: {character}</h3>
       </div>
-
-      <style jsx>{`
-        .card {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          flex-direction: column;
-          color: white;
-          text-align: center;
-        }
-
-        .card h1 {
-          font-size: 1.2rem;
-          height: 20px;
-          font-weight: 200;
-        }
-
-        .card h3 {
-          font-size: 1.1rem;
-          font-weight: 300;
-          margin-bottom: 5px;
-        }
-
-        @media screen and (max-width: 648px) {
-          .card {
-            justify-content: center;
-            align-content: center;
-          }
-          .card img {
-            width: 100%;
-          }
-        }
-      `}</style>
     </>
   );
 };

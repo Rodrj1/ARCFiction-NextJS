@@ -8,12 +8,11 @@ interface GridProps {
 }
 
 const SlidersContainer = ({ data }: GridProps) => {
-  console.log(data);
   const firstTenFromData = data.results.slice(0, 10);
   const SecondTenFromData = data.results.slice(10, 20);
   return (
     <>
-      <h1 style={{ fontSize: "30px", textAlign: "center" }}>
+      <h1 style={{ fontSize: "2rem", textAlign: "center", fontWeight: "300" }}>
         TRENDING THIS WEEK
       </h1>
 

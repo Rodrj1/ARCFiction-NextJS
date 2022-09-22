@@ -55,7 +55,7 @@ const Slider = ({ data, layout }: SliderProps) => {
       <Carousel
         autoPlay
         infiniteLoop
-        interval={8000}
+        interval={5000}
         showStatus={false}
         showThumbs={false}
         showArrows={false}

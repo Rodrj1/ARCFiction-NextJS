@@ -1,0 +1,72 @@
+.list {
+    width: 70%;
+    height: auto;
+    padding: 20px;
+    margin: auto;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.list>div:first-child {
+    margin-bottom: 10px;
+}
+
+.list button {
+    height: 40px;
+    width: 200px;
+    background: #571b986c;
+    border: 1px solid transparent;
+    transition: .2s ease-in-out;
+}
+
+.list button:hover {
+    border: 1px solid white;
+}
+
+.list h1 {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.list h3 {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.flexContainer {
+    display: flex;
+    width: 70%;
+    height: auto;
+    margin: auto;
+    padding: 20px;
+    color: white;
+    border-top: 1px solid white;
+}
+
+.mediaContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    grid-gap: 20px;
+    margin: 20px 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.mediaContainer button {
+    text-align: center;
+}
+
+@media screen and (max-width: 648px) {
+    .list {
+        width: 97%;
+        grid-gap: 0px;
+        text-align: center;
+    }
+
+    .flexContainer {
+        display: flex;
+        width: 100%;
+    }
+}

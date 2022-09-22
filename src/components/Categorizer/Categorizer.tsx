@@ -1,5 +1,6 @@
 import { DisplayCardProps } from "../../types";
 import { useRouter } from "next/router";
+import { v4 as uuid } from "uuid";
 import MediaCard from "../Cards/MediaCard/MediaCard";
 import CategorizerCSS from "./Categorizer.module.css";
 
@@ -25,6 +26,7 @@ const Categorizer = ({ name, data }: CategorizerProps) => {
           poster_path={card.poster_path}
           title={card.title}
           name={card.name}
+          uuid={uuid()}
         />
       </div>
     );
@@ -32,7 +34,7 @@ const Categorizer = ({ name, data }: CategorizerProps) => {
 
   return (
     <div className={CategorizerCSS.container}>
-      {name}
+      <h1>{name}</h1>
       <div className={CategorizerCSS.itemContainer}>{displayMedia}</div>
     </div>
   );

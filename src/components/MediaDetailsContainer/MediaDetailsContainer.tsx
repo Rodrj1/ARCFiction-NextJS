@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { addToList } from "../../feature/list-slice";
+import { v4 as uuid } from "uuid";
 import { MediaProps } from "../../types";
+import NextLink from "../NextLink/NextLink";
 import YoutubeTrailer from "../YoutubeTrailer/YoutubeTrailer";
 import MediaCSS from "./media.module.css";
 
@@ -13,9 +17,10 @@ interface DetailsProps {
       }
     | undefined;
   similar: JSX.Element[];
-  genres: string[];
+  genres: string;
   cast: (JSX.Element | undefined)[];
   images: (JSX.Element | undefined)[];
+  id: string;
 }
 
 const MediaDetailsContainer = ({
@@ -25,7 +30,36 @@ const MediaDetailsContainer = ({
   genres,
   cast,
   images,
+  id,
 }: DetailsProps) => {
+  const dispatch = useAppDispatch();
+  const getCurrentLists = useAppSelector((state) => state.lists.currentLists);
+
+  const handleAddToList = (listId: string) => {
+    dispatch(
+      addToList({
+        media: {
+          name: media.name,
+          title: media.title,
+          poster_path: media.poster_path,
+          id,
+          uuid: uuid(),
+        },
+        listId,
+      })
+    );
+  };
+
+  const displayCurrentLists = getCurrentLists.map((list) => (
+    <div
+      className={MediaCSS.userLists}
+      key={list.id}
+      onClick={() => handleAddToList(list.id)}
+    >
+      {list.name}
+    </div>
+  ));
+
   return (
     <motion.div
       initial={{ x: -400, opacity: 0 }}
@@ -48,6 +82,27 @@ const MediaDetailsContainer = ({
               ? media.overview
               : "It does not have a description yet."}
           </p>
+          <button className={MediaCSS.dropdown}>
+            <i className="fa-solid fa-list fa-xl" /> Add to Lists
+            <div className={MediaCSS.dropdownContent}>
+              {getCurrentLists.length > 0 ? (
+                <>
+                  <NextLink href="/lists">
+                    <div className={MediaCSS.userLists}>
+                      <i className="fa-solid fa-plus" /> Create New List
+                    </div>
+                  </NextLink>
+                  {displayCurrentLists}
+                </>
+              ) : (
+                <NextLink href="/lists">
+                  <div className={MediaCSS.userLists}>
+                    <i className="fa-solid fa-plus" /> Create New List
+                  </div>
+                </NextLink>
+              )}
+            </div>
+          </button>
         </div>
         <div className={MediaCSS.detailsItem}>
           <img

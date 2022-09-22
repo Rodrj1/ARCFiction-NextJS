@@ -2,9 +2,9 @@ import { MediaProps } from "../../types";
 import { useGetMediaDetails } from "../../hooks/useGetMediaDetails";
 import MediaDetailsContainer from "../../components/MediaDetailsContainer/MediaDetailsContainer";
 
-const TvDetail = ({ media }: MediaProps) => {
+const TvDetail = ({ media, id }: MediaProps) => {
   const { TV_TRAILER, cast, genres, similar, images } = useGetMediaDetails({
-    media,
+    media, id
   });
 
   return (
@@ -15,6 +15,7 @@ const TvDetail = ({ media }: MediaProps) => {
       genres={genres}
       cast={cast}
       images={images}
+      id={id}
     />
   );
 };
@@ -31,6 +32,7 @@ export const getServerSideProps = async (context: {
   return {
     props: {
       media: reqTvShowData,
+      id
     },
   };
 };

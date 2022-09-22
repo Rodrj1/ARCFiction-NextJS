@@ -2,11 +2,12 @@ import { useRouter } from "next/router";
 import { SetStateAction } from "react";
 import { movieGenres } from "../../data/genreData";
 import { DisplayCardProps } from "../../types";
+import { v4 as uuid } from "uuid";
+import { motion } from "framer-motion";
 import MediaCard from "../Cards/MediaCard/MediaCard";
 import GenreButton from "../GenreButton/GenreButton";
 import InfiniteScroll from "react-infinite-scroll-component";
 import SearcherCSS from "./SearcherContainer.module.css";
-import { motion } from "framer-motion";
 
 interface SearcherContainerProps {
   name: string;
@@ -92,6 +93,7 @@ const SearcherContainer = ({
                       poster_path={movie.poster_path}
                       title={movie.title}
                       name={movie.name}
+                      uuid={uuid()}
                     />
                   </div>
                 );

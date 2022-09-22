@@ -49,6 +49,10 @@ body {
   border: 2px solid hsl(272, 63%, 69%);
 }
 
+.no-border {
+  border: none;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

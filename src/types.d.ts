@@ -1,13 +1,30 @@
 export interface DisplayCardProps {
-  id: number;
+  id: string;
   title: string;
   name: string | undefined;
   poster_path: string;
   overview?: string;
   media_type?: string;
+  uuid: string;
+}
+
+export interface List {
+  id: string;
+  name: string;
+  description: string;
+  items: {
+    id: string;
+    title: string;
+    name: string | undefined;
+    poster_path: string;
+    overview?: string;
+    media_type?: string;
+    uuid: string;
+  }[];
 }
 
 export interface MediaProps {
+  id: string;
   media: {
     backdrop_path: string;
     genres: [

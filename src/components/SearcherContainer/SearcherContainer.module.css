@@ -22,7 +22,7 @@
 
 .search {
     background-color: #fff;
-    border:none;
+    border: none;
     border-radius: 25px;
     padding: 5px;
     font-size: 1.2rem;
@@ -62,4 +62,11 @@
     overflow-y: hidden;
     overflow-x: auto;
     margin-bottom: 40px;
+}
+
+@media screen and (max-width: 648px) {
+    .mediaContainer {
+        grid-template-row: repeat(1fr);
+        grid-auto-flow: row;
+    }
 }

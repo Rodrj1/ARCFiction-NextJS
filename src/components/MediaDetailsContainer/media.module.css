@@ -10,7 +10,6 @@
     text-align: center;
     font-size: 1.9rem;
     font-weight: 600;
-    height: 60px;
 }
 
 .gridContainer {
@@ -25,7 +24,7 @@
     grid-auto-flow: column;
     grid-gap: 20px 20px 0px 0px;
     padding-top: 20px;
-    height: 400px;
+    height: 420px;
     overflow-y: hidden;
     overflow-x: auto;
 }
@@ -130,6 +129,54 @@
     margin-bottom: 4px;
 }
 
+.dropdown {
+    display: inline-block;
+    align-self: flex-end;
+    height: 40px;
+    width: 150px;
+    color: white;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    background: #571b986c;
+    transition: 0.2s ease-in-out;
+}
+
+.dropdownContent {
+    background: #410b7a;
+    display: none;
+    min-width: 220px;
+    min-height: 40px;
+    padding: 12px 16px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 9000;
+    color: white;
+    opacity: 1;
+    position: absolute;
+    transition: opacity .2s ease-in-out;
+}
+
+.dropdown:hover {
+    border: 1px solid #fff;
+}
+
+.dropdown:hover .dropdownContent {
+    display: block;
+    opacity: 1;
+}
+
+.userLists {
+    background: #571b986c;
+    margin: 5px 0px;
+    font-size: 1.1rem;
+    transition: .2s ease-in-out;
+    min-height: 20px;
+    border: 1px solid transparent;
+}
+
+.userLists:hover {
+    border: 1px solid white;
+}
+
 @media screen and (max-width: 730px) {
 
     .gridContainer {
@@ -140,6 +187,10 @@
 
     .imageContainer {
         border-top: 4px solid hsl(272, 63%, 69%);
+    }
+
+    .container {
+        width: 100%;
     }
 
     .container:nth-child(1) {
@@ -199,19 +250,13 @@
         border-style: double;
     }
 
-    .description {
-        align-items: center;
-        align-content: center;
+    .description p, .description h3 {
+        width: 100%;
         text-align: center;
     }
 
-    .description p {
-        width: 100%;
-        font-size: 1.2rem;
-    }
-
-    .description h3 {
-        width: 100%;
+    .dropdown {
+        align-self: center;
     }
 
     .btn-trailer-off {
@@ -252,6 +297,10 @@
 
     .description p {
         font-size: 1.3rem;
+    }
+
+    .dropdown {
+        align-self: flex-start;
     }
 
     .innerContainer:nth-child(2) {

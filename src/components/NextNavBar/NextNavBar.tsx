@@ -10,7 +10,11 @@ const NextNavBar = () => {
         <NextLink href="/">
           <a>Home</a>
         </NextLink>
+        <NextLink href="/lists">
+          <a>Lists</a>
+        </NextLink>
         <div
+          style={{ cursor: "pointer" }}
           onClick={() =>
             router.push({
               pathname: "/searchmovies",
@@ -21,6 +25,7 @@ const NextNavBar = () => {
           <a>Movies</a>
         </div>
         <div
+          style={{ cursor: "pointer" }}
           onClick={() =>
             router.push({
               pathname: "/searchtvshows",
@@ -40,7 +45,7 @@ const NextNavBar = () => {
           height: 60px;
           width: 100%;
           margin: auto;
-          background: #571b986c;
+          background: rgb(70, 13, 131);
           position: fixed;
           z-index: 100000;
         }
@@ -54,6 +59,20 @@ const NextNavBar = () => {
         }
         nav a:hover {
           border-bottom: 1px solid #fff;
+        }
+        @media screen and (max-width: 648px) {
+          nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            height: 83px;
+          }
+          nav a,
+          nav div {
+            width: 100%;
+            margin: 0px 0px;
+            text-align: center;
+          }
         }
       `}</style>
     </>

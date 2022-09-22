@@ -1,0 +1,29 @@
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+  }
+
+  .card h1 {
+    font-size: 1.2rem;
+    height: 50px;
+    font-weight: 200;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+    font-weight: 300;
+    height: 30px;
+  }
+
+  @media screen and (max-width: 648px) {
+    .card {
+      width: 100%;
+    }
+    .card img {
+      width: 100%;
+    }
+  }
