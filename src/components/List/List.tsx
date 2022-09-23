@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { deleteList, removeFromList } from "../../feature/list-slice";
 import { DisplayCardProps } from "../../types";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import MediaCard from "../Cards/MediaCard/MediaCard";
 import ListCSS from "./List.module.css";
@@ -13,6 +14,8 @@ interface ListProps {
 }
 
 const ListItem = ({ name, description, items, id }: ListProps) => {
+  const [showConfirm, setShowConfirm] = useState(false);
+
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -57,7 +60,18 @@ const ListItem = ({ name, description, items, id }: ListProps) => {
         <div className={ListCSS.flexContainer}>
           <div className={ListCSS.mediaContainer}>{showMediaInCurrentList}</div>
         </div>
-        <button onClick={handleRemoveList}>DELETE LIST</button>
+        {!showConfirm && (
+          <button onClick={() => setShowConfirm(true)}>DELETE LIST</button>
+        )}
+
+        {showConfirm && (
+          <>
+            <button onClick={handleRemoveList}>CONFIRM</button>
+            <br/>
+            <br/>
+            <button onClick={() => setShowConfirm(false)}>RETURN</button>
+          </>
+        )}
       </div>
       <br />
     </>

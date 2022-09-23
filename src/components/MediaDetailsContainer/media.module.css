@@ -24,7 +24,7 @@
     grid-auto-flow: column;
     grid-gap: 20px 20px 0px 0px;
     padding-top: 20px;
-    height: 420px;
+    height: 460px;
     overflow-y: hidden;
     overflow-x: auto;
 }
@@ -70,6 +70,7 @@
 .detailsItem:nth-child(3) {
     flex-basis: 40%;
     height: 100%;
+    position: relative;
 }
 
 .details img {

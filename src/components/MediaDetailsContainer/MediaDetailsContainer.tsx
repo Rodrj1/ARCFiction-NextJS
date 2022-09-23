@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { addToList } from "../../feature/list-slice";
 import { v4 as uuid } from "uuid";
-import { MediaProps } from "../../types";
-import { useState } from "react";
+import { List, MediaProps } from "../../types";
+import { useEffect, useState } from "react";
 import NextLink from "../NextLink/NextLink";
 import YoutubeTrailer from "../YoutubeTrailer/YoutubeTrailer";
 import MediaCSS from "./media.module.css";
@@ -34,27 +34,35 @@ const MediaDetailsContainer = ({
   images,
   id,
 }: DetailsProps) => {
-  const [listAnnouncer, setListAnnouncer] = useState<boolean>(false);
+  const [showListAnnouncer, setShowListAnnouncer] = useState<boolean>(false);
   const [announcerMessage, setAnnouncerMessage] = useState<string>("");
 
   const dispatch = useAppDispatch();
   const getCurrentLists = useAppSelector((state) => state.lists.currentLists);
 
   const handleAnnouncer = () => {
-    setListAnnouncer((current) => !current);
+    setShowListAnnouncer((show) => !show);
   };
 
   const handleAddToList = (listId: string, listName: string) => {
-    const findList = getCurrentLists.find((list) => list.id === listId);
+    const findList = getCurrentLists.find((list: List) => list.id === listId);
     if (findList) {
+      window.scrollTo(0, 0);
+      window.onscroll = function () {
+        window.scrollTo(0, 0);
+      };
+
       const listIndex = getCurrentLists.indexOf(findList);
       handleAnnouncer();
       const mediaIsInList = getCurrentLists[listIndex].items.find(
         (listMedia) => listMedia.id === id
       );
+
       if (!mediaIsInList) {
         setAnnouncerMessage(
-          `${media.name ? media.name : media.title} succesfully listed in ${listName} list!`
+          `${
+            media.name ? media.name : media.title
+          } succesfully listed in ${listName} list!`
         );
         dispatch(
           addToList({
@@ -70,11 +78,19 @@ const MediaDetailsContainer = ({
         );
       } else {
         setAnnouncerMessage(
-          `${media.name} is already listed in ${listName}! list`
+          `${
+            media.name ? media.name : media.title
+          } is already listed in ${listName} list!`
         );
       }
     }
   };
+
+  useEffect(() => {
+    if (showListAnnouncer == false) {
+      window.onscroll = function () {};
+    }
+  }, [showListAnnouncer]);
 
   const displayCurrentLists = getCurrentLists.map((list) => (
     <div
@@ -182,13 +198,17 @@ const MediaDetailsContainer = ({
             <div className={MediaCSS.innerContainer}>{cast}</div>
           </div>
         </div>
+
+        <br />
+        <br />
+
         <div className={MediaCSS.container} style={{ width: "90%" }}>
           <h1>Best images</h1>
           <div className={MediaCSS.imageContainer}>{images}</div>
         </div>
       </motion.div>
 
-      {listAnnouncer && (
+      {showListAnnouncer && (
         <Announcer
           handleAnnouncer={handleAnnouncer}
           announcerMessage={announcerMessage}

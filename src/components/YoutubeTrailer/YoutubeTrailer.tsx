@@ -62,13 +62,12 @@ const YoutubeTrailer = ({ trailer }: TrailerProps) => {
         }
 
         .btn-trailer-on {
-          position: absolute;
+          position: relative;
           z-index: 2000;
           height: 50px;
           left: 0;
           bottom: 0;
           top: 0;
-          top: 60px;
         }
 
         .btn-trailer-on:hover,
@@ -81,7 +80,7 @@ const YoutubeTrailer = ({ trailer }: TrailerProps) => {
           box-shadow: inset 150px 0 50px 0 hsl(246, 55%, 10%);
         }
         @media screen and (max-width: 648px) {
-          .btn-trailer-off {
+          .btn-trailer-off, .btn-trailer-on {
             align-self: center;
           }
         }
