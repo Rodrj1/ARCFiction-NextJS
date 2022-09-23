@@ -38,7 +38,7 @@ export const getServerSideProps = async (context: {
 }) => {
   const media = context.query.name;
   const requestData = await fetch(
-    `https://api.themoviedb.org/3/discover/${media}?sort_by=popularity.desc&api_key=1d2291efea2e84d18b938ffde00ff81b&page=1`
+    `https://api.themoviedb.org/3/discover/${media}?sort_by=popularity.desc&api_key=${process.env.MOVIE_DB_API_KEY}&page=1`
   ).then((response) => response.json());
 
   return {

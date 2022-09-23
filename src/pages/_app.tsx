@@ -1,9 +1,9 @@
 import type { AppProps } from "next/app";
-import Head from "next/head";
-import NextNavBar from "../components/NextNavBar/NextNavBar";
 import { persistor, store } from "../app/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+import Head from "next/head";
+import NextNavBar from "../components/NextNavBar/NextNavBar";
 import "../../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -13,7 +13,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>ARCFiction - NextJS</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://kit.fontawesome.com/1c30045aa9.js" async></script>
       </Head>
 
       <NextNavBar />

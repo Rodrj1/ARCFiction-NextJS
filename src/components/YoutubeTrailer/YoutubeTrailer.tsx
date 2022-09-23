@@ -48,8 +48,9 @@ const YoutubeTrailer = ({ trailer }: TrailerProps) => {
         .btn-trailer-off,
         .btn-trailer-on {
           font-size: 1rem;
-          transition: 0.2s ease-in-out;
+          transition: .2s ease-in-out;
           background: #571b986c;
+          border: 1px solid transparent;
           width: 150px;
           margin: 5px 0px;
           color: white;

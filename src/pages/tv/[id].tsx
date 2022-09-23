@@ -4,7 +4,8 @@ import MediaDetailsContainer from "../../components/MediaDetailsContainer/MediaD
 
 const TvDetail = ({ media, id }: MediaProps) => {
   const { TV_TRAILER, cast, genres, similar, images } = useGetMediaDetails({
-    media, id
+    media,
+    id,
   });
 
   return (
@@ -32,7 +33,7 @@ export const getServerSideProps = async (context: {
   return {
     props: {
       media: reqTvShowData,
-      id
+      id,
     },
   };
 };

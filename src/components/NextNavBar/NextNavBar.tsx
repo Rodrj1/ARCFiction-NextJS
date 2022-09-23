@@ -60,7 +60,7 @@ const NextNavBar = () => {
         nav a:hover {
           border-bottom: 1px solid #fff;
         }
-        @media screen and (max-width: 648px) {
+        @media screen and (max-width: 655px) {
           nav {
             display: grid;
             grid-template-columns: 1fr 1fr;

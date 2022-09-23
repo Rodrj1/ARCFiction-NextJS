@@ -27,8 +27,8 @@ export const fetchCustomSearch = async (
 ) => {
   const requestURL =
     genre == undefined
-      ? `https://api.themoviedb.org/3/search/${type}?&api_key=1d2291efea2e84d18b938ffde00ff81b&query=${submittedSearch}&page=${page}`
-      : `https://api.themoviedb.org/3/discover/${type}?sort_by=popularity.desc&api_key=1d2291efea2e84d18b938ffde00ff81b&with_genres=${genre}&page=${page}`;
+      ? `https://api.themoviedb.org/3/search/${type}?&api_key=${process.env.MOVIE_DB_API_KEY}&query=${submittedSearch}&page=${page}`
+      : `https://api.themoviedb.org/3/discover/${type}?sort_by=popularity.desc&api_key=${process.env.MOVIE_DB_API_KEY}&with_genres=${genre}&page=${page}`;
 
   const requestNextPage = await fetch(requestURL).then((response) =>
     response.json()
