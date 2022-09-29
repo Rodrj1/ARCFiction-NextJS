@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { addToList } from "../../feature/list-slice";
 import { v4 as uuid } from "uuid";
@@ -104,12 +103,6 @@ const MediaDetailsContainer = ({
 
   return (
     <>
-      <motion.div
-        initial={{ x: -400, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        exit={{ x: -400, opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      >
         <div className={MediaCSS.details}>
           <div className={`${MediaCSS.detailsItem} ${MediaCSS.description}`}>
             <h1>
@@ -206,7 +199,6 @@ const MediaDetailsContainer = ({
           <h1>Best images</h1>
           <div className={MediaCSS.imageContainer}>{images}</div>
         </div>
-      </motion.div>
 
       {showListAnnouncer && (
         <Announcer

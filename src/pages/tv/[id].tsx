@@ -1,6 +1,7 @@
 import { MediaProps } from "../../types";
 import { useGetMediaDetails } from "../../hooks/useGetMediaDetails";
 import MediaDetailsContainer from "../../components/MediaDetailsContainer/MediaDetailsContainer";
+import AnimatedMotionDiv from "../../components/AnimatedMotionDiv/AnimatedMotionDiv";
 
 const TvDetail = ({ media, id }: MediaProps) => {
   const { TV_TRAILER, cast, genres, similar, images } = useGetMediaDetails({
@@ -9,15 +10,17 @@ const TvDetail = ({ media, id }: MediaProps) => {
   });
 
   return (
-    <MediaDetailsContainer
-      media={media}
-      TV_TRAILER={TV_TRAILER}
-      similar={similar}
-      genres={genres}
-      cast={cast}
-      images={images}
-      id={id}
-    />
+    <AnimatedMotionDiv>
+      <MediaDetailsContainer
+        media={media}
+        TV_TRAILER={TV_TRAILER}
+        similar={similar}
+        genres={genres}
+        cast={cast}
+        images={images}
+        id={id}
+      />
+    </AnimatedMotionDiv>
   );
 };
 

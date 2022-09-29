@@ -48,7 +48,7 @@
     .gridContainer {
         grid-template-columns: 100%;
         grid-template-rows: auto auto auto auto;
-        width: 100%;
+        width: 85%;
         margin: auto;
     }
 

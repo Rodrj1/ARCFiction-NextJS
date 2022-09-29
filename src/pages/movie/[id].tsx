@@ -1,22 +1,26 @@
 import { MediaProps } from "../../types";
 import { useGetMediaDetails } from "../../hooks/useGetMediaDetails";
 import MediaDetailsContainer from "../../components/MediaDetailsContainer/MediaDetailsContainer";
+import AnimatedMotionDiv from "../../components/AnimatedMotionDiv/AnimatedMotionDiv";
 
 const MovieDetail = ({ media, id }: MediaProps) => {
   const { TV_TRAILER, cast, genres, similar, images } = useGetMediaDetails({
-    media, id
+    media,
+    id,
   });
 
   return (
-    <MediaDetailsContainer
-      media={media}
-      TV_TRAILER={TV_TRAILER}
-      similar={similar}
-      genres={genres}
-      cast={cast}
-      images={images}
-      id={id}
-    />
+    <AnimatedMotionDiv>
+      <MediaDetailsContainer
+        media={media}
+        TV_TRAILER={TV_TRAILER}
+        similar={similar}
+        genres={genres}
+        cast={cast}
+        images={images}
+        id={id}
+      />
+    </AnimatedMotionDiv>
   );
 };
 
@@ -32,7 +36,7 @@ export const getServerSideProps = async (context: {
   return {
     props: {
       media: reqMovieData,
-      id
+      id,
     },
   };
 };

@@ -3,7 +3,6 @@ import { SetStateAction } from "react";
 import { movieGenres } from "../../data/genreData";
 import { DisplayCardProps } from "../../types";
 import { v4 as uuid } from "uuid";
-import { motion } from "framer-motion";
 import MediaCard from "../Cards/MediaCard/MediaCard";
 import GenreButton from "../GenreButton/GenreButton";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -41,12 +40,6 @@ const SearcherContainer = ({
       : "Search for your favorite tv shows.";
 
   return (
-    <motion.div
-      initial={{ x: -400, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      exit={{ x: -400, opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
       <div style={{ width: "100%" }}>
         <InfiniteScroll
           dataLength={data?.length}
@@ -102,7 +95,6 @@ const SearcherContainer = ({
           </div>
         </InfiniteScroll>
       </div>
-    </motion.div>
   );
 };
 

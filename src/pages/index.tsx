@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
 import { DisplayCardProps } from "../types";
 import { requests } from "../data/requests";
 import type { NextPage } from "next";
 import SlidersContainer from "../components/SlidersContainer/SlidersContainer";
 import Categorizer from "../components/Categorizer/Categorizer";
+import AnimatedMotionDiv from "../components/AnimatedMotionDiv/AnimatedMotionDiv";
 
 interface HomeProps {
   weekly: {
@@ -32,41 +32,26 @@ const Home: NextPage<HomeProps> = ({ weekly, popular, upcoming, topRated }) => {
 
       <br />
 
-      <motion.div
-        initial={{ x: -400, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        exit={{ x: -400, opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+      <AnimatedMotionDiv>
         <SlidersContainer data={weekly} />
-      </motion.div>
+      </AnimatedMotionDiv>
 
       <br />
 
-      <motion.div
-        initial={{ x: -400, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        exit={{ x: -400, opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        className="popularAndTrending"
-      >
+      <AnimatedMotionDiv>
         <Categorizer name="What's Popular?" data={popular} />
-      </motion.div>
+      </AnimatedMotionDiv>
+
+      <br />
+      <AnimatedMotionDiv>
+        <Categorizer name="Upcoming" data={upcoming} />
+      </AnimatedMotionDiv>
 
       <br />
 
-      <motion.div
-        initial={{ x: -400, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        exit={{ x: -400, opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Categorizer name="Upcoming" data={upcoming} />
-
-        <br />
-
+      <AnimatedMotionDiv>
         <Categorizer name="Top Rated" data={topRated} />
-      </motion.div>
+      </AnimatedMotionDiv>
 
       <br />
     </>

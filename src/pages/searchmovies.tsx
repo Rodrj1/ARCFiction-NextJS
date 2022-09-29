@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import { DisplayCardProps } from "../types";
 import { useSearchByMedia } from "../hooks/useSearcherByMedia";
 import SearcherContainer from "../components/SearcherContainer/SearcherContainer";
+import AnimatedMotionDiv from "../components/AnimatedMotionDiv/AnimatedMotionDiv";
 
 interface SearcherProps {
   initialData: DisplayCardProps[];
@@ -20,16 +21,18 @@ const Searcher: NextPage<SearcherProps> = ({ initialData, media }) => {
   } = useSearchByMedia({ initialData });
 
   return (
-    <SearcherContainer
-      name={media}
-      data={data}
-      hasMore={hasMore}
-      advancePage={advancePage}
-      submitSearch={submitSearch}
-      provisionalSearch={provisionalSearch}
-      storeProvisionalSearch={storeProvisionalSearch}
-      selectGenre={selectGenre}
-    />
+        <AnimatedMotionDiv>
+          <SearcherContainer
+            name={media}
+            data={data}
+            hasMore={hasMore}
+            advancePage={advancePage}
+            submitSearch={submitSearch}
+            provisionalSearch={provisionalSearch}
+            storeProvisionalSearch={storeProvisionalSearch}
+            selectGenre={selectGenre}
+          />
+        </AnimatedMotionDiv>
   );
 };
 
