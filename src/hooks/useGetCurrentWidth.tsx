@@ -7,7 +7,6 @@ export const useGetCurrentWidth = () => {
     const updateWindowDimensions = () => {
       const newWidth = window.innerWidth;
       setWidth(newWidth);
-      console.log(newWidth);
     };
 
     window.addEventListener("resize", updateWindowDimensions);

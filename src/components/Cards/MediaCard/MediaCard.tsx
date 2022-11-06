@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import CardCSS from "../Card.module.css";
 
-const MediaCard = ({ id, poster_path, title, name }: DisplayCardProps) => {
+const MediaCard = ({ poster_path, title, name }: DisplayCardProps) => {
   const image_URL = `https://image.tmdb.org/t/p/w500/${poster_path}`;
 
   return (

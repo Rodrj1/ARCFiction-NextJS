@@ -59,6 +59,8 @@ const Home: NextPage<HomeProps> = ({ weekly, popular, upcoming, topRated }) => {
 };
 
 export const getServerSideProps = async () => {
+
+
   try {
     const [fetchWeekly, fetchPopular, fetchUpcoming, fetchTopRated] =
       await Promise.all([

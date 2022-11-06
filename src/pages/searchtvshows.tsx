@@ -3,7 +3,6 @@ import { DisplayCardProps } from "../types";
 import { useSearchByMedia } from "../hooks/useSearcherByMedia";
 import SearcherContainer from "../components/SearcherContainer/SearcherContainer";
 import AnimatedMotionDiv from "../components/AnimatedMotionDiv/AnimatedMotionDiv";
-import { useGetCurrentWidth } from "../hooks/useGetCurrentWidth";
 
 interface SearcherProps {
   initialData: DisplayCardProps[];
@@ -11,7 +10,6 @@ interface SearcherProps {
 }
 
 const Searcher: NextPage<SearcherProps> = ({ initialData, media }) => {
-  const { width } = useGetCurrentWidth();
   const {
     data,
     hasMore,
