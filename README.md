@@ -1,6 +1,6 @@
 # ARCFiction Movie App
 
-Netlify build: https://arcfiction-nextjs.netlify.app/
+Website: https://arcfiction-nextjs.netlify.app/
 
 # Home page
 
